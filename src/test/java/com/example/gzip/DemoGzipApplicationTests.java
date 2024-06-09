@@ -2,6 +2,7 @@ package com.example.gzip;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.zalando.logbook.spring.LogbookClientHttpRequestInterceptor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,6 +25,9 @@ class DemoGzipApplicationTests {
 	@Autowired
 	RestClient.Builder restClientBuilder;
 
+	@Autowired
+	LogbookClientHttpRequestInterceptor logbookClientHttpRequestInterceptor;
+
 	RestClient restClient;
 
 	@LocalServerPort
@@ -36,6 +40,7 @@ class DemoGzipApplicationTests {
 		if (this.restClient == null) {
 			this.restClient = this.restClientBuilder.baseUrl("http://localhost:" + this.port)
 				.requestInterceptor(new GzipCompressingClientHttpRequestInterceptor())
+				.requestInterceptor(logbookClientHttpRequestInterceptor)
 				.build();
 		}
 	}

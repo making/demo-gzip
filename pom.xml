@@ -44,9 +44,9 @@
 			<artifactId>jetty-alpn-java-server</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>am.ik.access-logger</groupId>
-			<artifactId>access-logger</artifactId>
-			<version>0.3.2</version>
+			<groupId>am.ik.spring.logbook</groupId>
+			<artifactId>access-logger-logbook</artifactId>
+			<version>0.1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents.client5</groupId>
